@@ -13,7 +13,7 @@ spec:
         app: demoapp
     spec:
       containers:
-      - name: notes
+      - name: demoapp
         image: {{ .Values.image }}
         ports:
         - containerPort: {{ .Values.targetPort }}
@@ -37,7 +37,7 @@ metadata:
   name: demoapp-ingress
 spec:
   rules:
-  - host:  "35.204.56.200.nip.io"
+  - host: "35.204.56.200.nip.io"
     http:
       paths:
       - path: /
