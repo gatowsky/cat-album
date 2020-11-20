@@ -37,7 +37,7 @@ metadata:
   name: demoapp-ingress
 spec:
   rules:
-  - host: "35.204.56.200.nip.io"
+  - host: 
     http:
       paths:
       - path: /
