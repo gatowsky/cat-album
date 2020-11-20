@@ -1,0 +1,8 @@
+name: appdemo
+version: 1.0
+appVersion: 1.0
+home: https://gitlab.com/warias/cloud-native-chatbot/
+description: A simple Flask application to learn how to deploy to K8S
+sources:
+  - https://gitlab.com/warias/cloud-native-chatbot
+
