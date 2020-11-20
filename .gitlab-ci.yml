@@ -6,9 +6,9 @@ stages:
   - build
 
 build:
-
+  stage: build
   variables:
-   CONTAINER_IMAGE: ${IMAGE}:${CI_COMMIT_SHORT_SHA}
+     CONTAINER_IMAGE: ${IMAGE}:${CI_COMMIT_SHORT_SHA}
   script:
     - sleep 5
     - docker info
