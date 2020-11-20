@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoapp
+  template:
+    metadata:
+      labels:
+        app: demoapp
+    spec:
+      containers:
+      - name: notes
+        image: {{ .Values.image }}
+        ports:
+        - containerPort: {{ .Values.targetPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demoapp-svc
+spec:
+  ports:
+  - port: {{ .Values.port }}
+    targetPort: {{ .Values.targetPort }}
+    protocol: TCP
+    name: http
+  selector:
+    app: demoapp
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: demoapp-ingress
+spec:
+  rules:
+  - host:  "35.204.56.200.nip.io"
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: demoapp-svc
+          servicePort: {{ .Values.port }}
+
