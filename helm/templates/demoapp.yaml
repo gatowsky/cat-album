@@ -32,17 +32,6 @@ spec:
     app: demoapp
   type: LoadBalancer
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: demoapp-ingress
-spec:
-  rules:
-  - host: 
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: demoapp-svc
-          servicePort: {{ .Values.port }}
+
+
 
